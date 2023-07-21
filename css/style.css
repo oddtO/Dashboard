@@ -10,12 +10,13 @@ body {
   grid-template: 1fr 2fr 10fr / 1fr 4fr;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
+  --page-blue: #006ebe;
 }
 
 aside {
   grid-column: 1;
   grid-row: 1 / -1;
-  background-color: #006ebe;
+  background-color: var(--page-blue);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -64,14 +65,6 @@ aside div:first-child {
 
 /* search-wrapper */
 
-.greeting {
-  grid-row: 2;
-  background-color: #dcdc00;
-}
-
-main {
-  background-color: #aa00aa;
-}
 .search-wrapper {
   grid-row: 1;
   background-color: #ffffff;
@@ -83,7 +76,7 @@ main {
 }
 
 .search-wrapper *:nth-child(1n + 3) {
-  margin-right: 50px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -109,4 +102,58 @@ main {
 .search-wrapper .avatar-small {
   width: calc(var(--search-img-size) * 2);
   height: calc(var(--search-img-size) * 2);
+}
+
+.search-wrapper span {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+/* greeting */
+
+.greeting-wrapper {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  padding: 0 3%;
+}
+
+.greeting-wrapper > div:first-child {
+  height: auto;
+}
+
+.greeting-wrapper img {
+  --greeting-img-size: 100px;
+  width: var(--greeting-img-size);
+  height: var(--greeting-img-size);
+  border-radius: 50%;
+}
+
+.greeting {
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  font-weight: 900;
+}
+
+.username {
+  font-size: 30px;
+}
+
+.greeting-wrapper a {
+  width: 120px;
+  height: 40px;
+  margin-right: 40px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: var(--page-blue);
+  color: #ffffff;
+  font-weight: 900;
+}
+
+main {
+  background-color: #aa00aa;
 }
