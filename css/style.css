@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap");
 a {
   text-decoration: none;
   color: inherit;
@@ -11,6 +10,7 @@ body {
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
   --page-blue: #006ebe;
+  --page-gray: #dce6f0;
 }
 
 aside {
@@ -87,7 +87,7 @@ aside div:first-child {
   border-radius: 30px;
   outline: none;
   border: none;
-  background-color: #d2d2d2;
+  background-color: var(--page-gray);
   padding: 0 10px;
   font-size: 15px;
 }
@@ -155,5 +155,76 @@ aside div:first-child {
 }
 
 main {
-  background-color: #aa00aa;
+  display: grid;
+  grid-template: repeat(2, 1fr) / 3fr 1fr;
+  background-color: var(--page-gray);
+  --header-offset: 30px;
+  gap: var(--header-offset);
+  padding-left: var(--header-offset);
+  box-shadow: inset 0 3px 10px #b4bebe;
+}
+
+main > * > h3 {
+  align-self: end;
+  position: relative;
+  bottom: 15px;
+}
+
+:is(main > *, .card) > h3 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.projects {
+  grid-row: 1 / -1;
+  grid-column: 1;
+  display: grid;
+  --header-offset: 80px;
+  grid-template-rows: var(--header-offset) auto var(--header-offset);
+}
+
+.projects .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  grid-auto-rows: 1fr;
+  gap: 32px;
+  cursor: pointer;
+}
+
+.projects .card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 5px;
+  border-radius: 10px;
+  border-left: 10px solid #fa7800;
+  box-shadow: 2px 2px 2px #bebebe;
+}
+
+.card .description {
+  flex: 1;
+  font-weight: 100;
+  color: #6e6e6e;
+}
+
+.card .buttons {
+  display: flex;
+  gap: 10px;
+
+  justify-content: end;
+}
+
+.buttons img {
+  --card-img-size: 30px;
+  width: var(--card-img-size);
+  height: var(--card-img-size);
+}
+.announcements {
+  grid-row: 1;
+  background-color: #00d2d2;
+}
+
+.trending {
+  background-color: #0000ff;
 }
