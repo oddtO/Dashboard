@@ -9,6 +9,7 @@ body {
   display: grid;
   grid-template: 1fr 2fr 10fr / 1fr 4fr;
   min-height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
 
 aside {
@@ -53,7 +54,6 @@ aside div {
   width: 100%;
   text-decoration: none;
   color: #ffffff;
-  font-family: "Roboto", sans-serif;
   font-weight: 900;
 }
 
@@ -61,10 +61,8 @@ aside div:nth-last-child(4),
 aside div:first-child {
   padding-bottom: 40px;
 }
-.search-wrapper {
-  grid-row: 1;
-  background-color: #8c8c8c;
-}
+
+/* search-wrapper */
 
 .greeting {
   grid-row: 2;
@@ -74,12 +72,41 @@ aside div:first-child {
 main {
   background-color: #aa00aa;
 }
-
-
-/* search-wrapper */
-
-.search-wrapper img {
-	width: 20px;
-	height: 20px;
+.search-wrapper {
+  grid-row: 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 3%;
+  padding-right: 6%;
 }
 
+.search-wrapper *:nth-child(1n + 3) {
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.search-wrapper input {
+  flex: 1;
+  margin-right: 10%;
+  height: 30px;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: #d2d2d2;
+  padding: 0 10px;
+  font-size: 15px;
+}
+.search-wrapper img {
+  --search-img-size: 25px;
+  width: var(--search-img-size);
+
+  height: var(--search-img-size);
+  border-radius: 40px;
+}
+
+.search-wrapper .avatar-small {
+  width: calc(var(--search-img-size) * 2);
+  height: calc(var(--search-img-size) * 2);
+}
