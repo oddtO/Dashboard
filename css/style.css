@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   display: grid;
   grid-template: 1fr 2fr 10fr / 1fr 4fr;
@@ -7,9 +14,53 @@ body {
 aside {
   grid-column: 1;
   grid-row: 1 / -1;
-  background-color: #00aafa;
+  background-color: #006ebe;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  --dashboard-font-size: 20px;
+  font-size: var(--dashboard-font-size);
+  align-items: center;
 }
 
+aside img {
+  /* object-fit: contain; */
+  --icon-size: 40px;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin: 0 20px;
+
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
+}
+
+aside div:first-child img {
+  width: calc(var(--icon-size) * 2);
+  height: calc(var(--icon-size) * 2);
+}
+
+aside div:first-child {
+  margin-top: 20px;
+  font-size: calc(var(--dashboard-font-size) * 1.5);
+}
+
+aside div:nth-child(1n + 2) img {
+  padding: 0 calc(var(--icon-size) / 2);
+}
+aside div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+}
+
+aside div:nth-last-child(4),
+aside div:first-child {
+  padding-bottom: 40px;
+}
 .search-wrapper {
   grid-row: 1;
   background-color: #8c8c8c;
@@ -20,7 +71,15 @@ aside {
   background-color: #dcdc00;
 }
 
-
 main {
-	background-color: #aa00aa;
+  background-color: #aa00aa;
 }
+
+
+/* search-wrapper */
+
+.search-wrapper img {
+	width: 20px;
+	height: 20px;
+}
+
