@@ -156,12 +156,13 @@ aside div:first-child {
 
 main {
   display: grid;
-  grid-template: repeat(2, 1fr) / 3fr 1fr;
+  grid-template: repeat(2, 1fr) / 2.5fr 1fr;
   background-color: var(--page-gray);
-  --header-offset: 30px;
-  gap: var(--header-offset);
-  padding-left: var(--header-offset);
+  --header-left-offset: 30px;
+  --header-offset: 80px;
+  padding-left: var(--header-left-offset);
   box-shadow: inset 0 3px 10px #b4bebe;
+  --description-text-color: #8c8c8c;
 }
 
 main > * > h3 {
@@ -178,17 +179,8 @@ main > * > h3 {
   grid-row: 1 / -1;
   grid-column: 1;
   display: grid;
-  --header-offset: 80px;
   grid-template-rows: var(--header-offset) auto var(--header-offset);
-}
-
-.projects .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  grid-auto-rows: 1fr;
-  gap: 32px;
-  cursor: pointer;
+  padding-right: 10px;
 }
 
 .projects .card {
@@ -197,15 +189,27 @@ main > * > h3 {
   flex-direction: column;
   padding: 20px;
   gap: 5px;
-  border-radius: 10px;
   border-left: 10px solid #fa7800;
-  box-shadow: 2px 2px 2px #bebebe;
+}
+
+.card,
+.content:not(.projects > .content) {
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #bebebe;
+}
+.projects .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+  grid-auto-rows: 1fr;
+  gap: 32px;
+  cursor: pointer;
 }
 
 .card .description {
   flex: 1;
-  font-weight: 100;
-  color: #6e6e6e;
+  font-weight: 400;
+  color: var(--description-text-color);
 }
 
 .card .buttons {
@@ -222,9 +226,43 @@ main > * > h3 {
 }
 .announcements {
   grid-row: 1;
-  background-color: #00d2d2;
+  display: grid;
+  padding: 0 40px;
+  grid-template-rows: var(--header-offset) auto;
+  --header-font-size: 17px;
+}
+
+.announcements .content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  --announcements-gap: 20px;
+  gap: var(--announcements-gap);
+  padding: 30px;
+  justify-content: center;
+}
+
+.announcements section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.announcements section:not(:last-child) {
+  padding-bottom: var(--announcements-gap);
+  border-bottom: 1px solid var(--description-text-color);
+}
+.announcements h5 {
+  font-size: var(--header-font-size);
+}
+
+.announcements h5 + div {
+  font-size: calc(var(--header-font-size) * 0.75);
+  font-weight: 400;
+  color: var(--description-text-color);
 }
 
 .trending {
   background-color: #0000ff;
+  display: grid;
+  grid-template-rows: var(--header-offset) auto var(--header-offset);
 }
